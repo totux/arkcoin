@@ -1,0 +1,32 @@
+.App {
+  text-align: center;
+  font-size: small;
+}
+
+.AppLogo {
+  height: 70px;
+}
+
+.AppHeader {
+  background-color: #222;
+  height:  90px;
+  padding: 10px;
+  color: white;
+}
+
+.AppHeader a {
+    color: white;
+}
+
+.AppLinks {
+}
+
+.AppTicker{
+}
+
+.AppDelegate{
+}
+
+table{
+  margin:auto;
+}
