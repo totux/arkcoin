@@ -12,6 +12,7 @@ import { AppPaymentVoter} from './AppPaymentVoter.js'
 import { AppBittrex} from './AppBittrex.js'
 import { AppNews} from './AppNews.js'
 import { AppRewards } from './AppRewards.js'
+import { AppAcf } from './AppAcf.js'
 
 class AppHeader extends Component {
   render() {
@@ -25,7 +26,8 @@ class AppHeader extends Component {
           <Link to='/voters'>Voters</Link> &nbsp;
           <Link to='/history'>History</Link> &nbsp;
           <Link to='/rewards'>Rewards</Link> &nbsp;          
-          <Link to='/bittrex'>Bittrex</Link>
+          <Link to='/bittrex'>Bittrex</Link> &nbsp;   
+          <Link to='/acf'>Acf</Link>
         </nav>
       </div>
     );
@@ -46,6 +48,7 @@ class AppMain extends Component {
           <Route path='/paymentvoter/:id' component={AppPaymentVoter}/>
           <Route path='/rewards' component={AppRewards}/>
           <Route path='/bittrex' component={AppBittrex}/>
+          <Route path='/acf' component={AppAcf}/>
         </Switch>
       </div>
     );

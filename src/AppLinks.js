@@ -45,14 +45,8 @@ export class AppLinks extends Component {
           <a href="https://api.arkcoin.net/api/peers/version">ark-node public api</a>
         </p>  
         <p>
-          <a href="https://docs.google.com/spreadsheets/d/1UiFFWfnk_Ws7J1PfW-d1c4CcLUSqjAPPtKkPr_FCV9g/">ark account statement</a>
-        </p>  
-        <p>
           <a href="https://docs.google.com/spreadsheets/d/1QawUqYa_e9YN_3Stb3-WYTdJ2BgnYqxsErYbA2ihXjo">delegate who is who</a>
-        </p> 
-        <p>
-          <a href="https://docs.google.com/spreadsheets/d/1rsHgAn1rEt_R1LF0KGc-Td0jODiYM4MmM8XHtFp3hM4">portfolio calculator</a>
-        </p>         
+        </p>          
         <p>
           <b>Github</b>
         </p>
