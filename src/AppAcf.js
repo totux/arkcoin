@@ -52,6 +52,8 @@ export class AppAcf extends Component {
 
             //extract unique voters  
             var voters = [];
+            var looper = 0;
+            var targetLoops = info.count/50;
             for(var i = 0; i< info.count; i++){   
                 if (i%50 === 0) {            
                     fetch("https://api.arkcoin.net/api/transactions?recipientId="+info.address+"&offset="+i+"&limit=50")
@@ -62,6 +64,7 @@ export class AppAcf extends Component {
                         return response.json();
                     })
                     .then(function(info2) {            
+                        looper = looper +1;
                         //extract unique voters  
                         var trans = info2.transactions;
                         for (var j=0; j< trans.length; j++) {
@@ -71,7 +74,7 @@ export class AppAcf extends Component {
                         }
                         
                         //once we got all pages/voters we can start summing up
-                        if(trans.length < 50) {
+                        if(looper >= targetLoops) { //trans.length < 50 does not work for 50 TX
                             var uVoters = voters.filter(function(elem, index, self) {
                               return index === self.indexOf(elem);
                             })                    
