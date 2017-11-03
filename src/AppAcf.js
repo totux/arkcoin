@@ -133,15 +133,15 @@ export class AppAcf extends Component {
 
     const candRow= this.state.candidates
     .sort((a, b) => b.votes - a.votes)
-    .map((cand) =>
+    .map((cand, index) =>
       <tr key={ cand.name }>
-        <td> { cand.name }
+        <td> { index < 5 ? <b><font color='green'> { index+1} </font></b> : index+1 }
         </td>
-        <td> { cand.address }
+        <td> { index < 5 ? <b><font color='green'> { cand.name} </font></b> : cand.name }
         </td>
-        <td> { cand.count }
+        <td> { index < 5 ? <font color='green'> { cand.address} </font> : cand.address }
         </td>
-        <td> { Number (Math.round(cand.votes) ).toLocaleString('en') }
+        <td> { index < 5 ? <b><font color='green'>  { Number (Math.round(cand.votes) ).toLocaleString('en') }  </font></b> : Number (Math.round(cand.votes) ).toLocaleString('en')  }
         </td>
       </tr>
     );
@@ -155,16 +155,16 @@ export class AppAcf extends Component {
           Height: {this.state.height.height}
       </p>
       <p>
-          <b>Blocks remaining: {this.state.deadline - this.state.height}</b>
+          Blocks remaining: <font color='red'>{ this.state.deadline - this.state.height.height }</font>
       </p>
         <table>
           <thead>
             <tr>
+            <th> Rank
+              </th>              
             <th> Candidate
               </th>
               <th> Address
-              </th>
-              <th> Tx
               </th>
               <th> Votes
               </th>
