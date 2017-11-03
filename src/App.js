@@ -27,7 +27,7 @@ class AppHeader extends Component {
           <Link to='/history'>History</Link> &nbsp;
           <Link to='/rewards'>Rewards</Link> &nbsp;          
           <Link to='/bittrex'>Bittrex</Link> &nbsp;   
-          <Link to='/acf'>Acf</Link>
+          <Link to='/acf'>ACF</Link>
         </nav>
       </div>
     );
