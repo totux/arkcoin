@@ -7,7 +7,8 @@ export class AppAcf extends Component {
     this.state = {
       success: true,
       candidates: [],
-      height: []
+      height: [],
+      deadline: 2563000
     }
   };
 
@@ -148,7 +149,13 @@ export class AppAcf extends Component {
     return (
       <div>
       <p>
+          Deadline: {this.state.deadline}
+      </p>
+      <p>
           Height: {this.state.height.height}
+      </p>
+      <p>
+          <b>Blocks remaining: {this.state.deadline - this.state.height}</b>
       </p>
         <table>
           <thead>
