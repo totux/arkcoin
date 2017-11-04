@@ -9,9 +9,22 @@
 
 .AppHeader {
   background-color: #222;
-  height:  90px;
-  padding: 10px;
+  height:  100px;
+  padding: 0px;
   color: white;
+}
+
+.AppHeader {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.AppHeader nav {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .AppHeader a {
