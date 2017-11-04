@@ -33,8 +33,7 @@
 }
 
 .AppHeader a:link, a:visited {
-  background-color: #222;
-  padding: 2px 2px;
+  padding: 0px 0px;
   text-align: center; 
   text-decoration: none;
   display: inline-block;
