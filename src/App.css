@@ -29,6 +29,19 @@
 
 .AppHeader a {
     color: white;
+    text-decoration: none;
+}
+
+.AppHeader a:link, a:visited {
+  background-color: #222;
+  padding: 2px 2px;
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+}
+
+.AppHeader a:hover, a:active {
+  background-color: #ae0402;
 }
 
 .AppLinks {
