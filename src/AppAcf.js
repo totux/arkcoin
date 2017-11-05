@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 export class AppAcf extends Component {
   constructor(props) {
@@ -161,7 +162,8 @@ export class AppAcf extends Component {
       <p>
           Deadline on Block: {this.state.deadline} <br/>
           Current Block Height: {this.state.height.height} <br/>
-          Blocks remaining: <font color='red'>{ this.state.deadline - this.state.height.height }</font>
+          Blocks remaining: { this.state.deadline - this.state.height.height }<br/>
+          Estimated time remaining: <b><font color='red'>{moment.duration((this.state.deadline - this.state.height.height) * 8,'seconds').humanize()}</font></b> 
       </p>
         <table>
           <thead>

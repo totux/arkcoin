@@ -29,15 +29,12 @@ export class AppNews extends Component {
   }
 
   getTimeCounter(t) {
-    var arkStart = moment([2017, 2, 21, 14, 0, 0, 0]);
-    var dt = arkStart.add(t, 's');
+    var arkStart = moment.utc([2017, 2, 21, 13, 0, 0, 0]).local();
+    var duration = moment.duration(t, 'seconds');
+    var dt = arkStart.add(duration);
 
     return dt.format('LLL') + ' (' + dt.fromNow() + ')';
   }
-
-  getFormatedDateTime(value) {
-    return moment(value).format('YYYY-MMM-DD HH:mm');
-  };
 
   fetchData(page) {   
     var that = this;
@@ -50,7 +47,6 @@ export class AppNews extends Component {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
         that.setState({
           news: data
         });
