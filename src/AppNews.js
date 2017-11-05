@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Linkify from 'react-linkify';
+import moment from 'moment';
 
 export class AppNews extends Component {
   constructor(props) {
@@ -26,6 +27,19 @@ export class AppNews extends Component {
       this.fetchData(newPage)      
     }
   }
+
+  getTimeCounter(t) {
+    var arkStart = moment([2017, 2, 21, 13, 0, 0, 0]);
+    var dt = arkStart.add(t, 's');
+
+    var now = moment();
+
+    return dt.format('LLL') + ' (' + dt.to(now, true) + ' ago)';
+  }
+
+  getFormatedDateTime(value) {
+    return moment(value).format('YYYY-MMM-DD HH:mm');
+  };
 
   fetchData(page) {   
     var that = this;
@@ -66,38 +80,48 @@ export class AppNews extends Component {
     .filter((news) => news.vendorField !== undefined && news.amount >= this.state.filterKey * 100000000  )
     .map((news) =>
         <tr key={news.id}>
-            <td><Linkify> {news.vendorField}</Linkify> &nbsp;        
-            (<a href={"https://explorer.arkcoin.net/tx/"+news.id}>{Number(news.amount / 100000000).toLocaleString('en')}</a>)
+            <td>
+              { news.amount >= 1 * 100000000 ?
+                <b><Linkify> {news.vendorField}</Linkify></b> :
+                news.amount < 0.1 * 100000000 ?
+                <i><Linkify> {news.vendorField}</Linkify></i>:
+                <Linkify> {news.vendorField}</Linkify>  }  
+              <br/>
+                <font color="grey" size="1">
+                  <a href={"https://explorer.arkcoin.net/tx/"+news.id} className="atdate">@</a>&nbsp;
+                  {this.getTimeCounter(news.timestamp)}
+                </font>          
             </td>               
         </tr>
     );
 
     return (
-      <div>
+      <div className="AppNews">
         <p>
-          Send 0.1 Ark with vendorfield to <br/>
-          AZHXnQAYajd3XkxwwiL6jnLjtDHjtAATtR   
+          Send a transaction with vendorfield to <br/>
+          <a href="https://explorer.arkcoin.net/address/AZHXnQAYajd3XkxwwiL6jnLjtDHjtAATtR">AZHXnQAYajd3XkxwwiL6jnLjtDHjtAATtR</a> <br/>
+          (Regular:0.1 - Premium:1.0) <br/>
         </p> 
         <p>
           <button
             type="button"
             onClick={() => this.setState({ filterKey: 0 })}
-          >All (0)</button>
+          ><i>All</i></button>
           &nbsp;
           <button
             type="button"
             onClick={() => this.setState({ filterKey: 0.1 })}
-          >Normal (0.1)</button>
+          >Regular</button>
           &nbsp;
           <button
             type="button"
             onClick={() => this.setState({ filterKey: 1.0 })}
-          >Premium (1)</button>
+          ><b>Premium</b></button>
         </p>
         <table>
           <thead>
             <tr>
-              <th>News (Ark)
+              <th>Ark Blockchain News
               </th>        
             </tr>
           </thead>
@@ -106,15 +130,19 @@ export class AppNews extends Component {
           </tbody>
         </table>
         <p>
+        {this.state.page > 0 ?
         <button
             type="button"
             onClick={() => this.lastPage(this.state.page)}
-          >Last</button>     
-          &nbsp; {this.state.page / 50} &nbsp; 
-        <button
+          >Previous</button>
+        : <div/>}     
+          &nbsp; page {this.state.page / 50} &nbsp; 
+       {this.state.news.transactions.length === 50 ?
+       <button
             type="button"
             onClick={() => this.nextPage(this.state.page)}
-          >Next</button>            
+          >Next</button>  
+        : <div/>}          
         </p>
       </div>
 

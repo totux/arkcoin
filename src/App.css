@@ -43,15 +43,17 @@
   background-color: #ae0402;
 }
 
-.AppLinks {
-}
-
-.AppTicker{
-}
-
-.AppDelegate{
+.AppNews a.atdate {
+  text-decoration: none;
+  color: grey;
+  size: 1;
 }
 
 table{
+  border-collapse: collapse;
   margin:auto;
+}
+
+table, th, td {
+  border-bottom: 1px solid #ddd;
 }

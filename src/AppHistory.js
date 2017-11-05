@@ -54,6 +54,9 @@ export class AppHistory extends Component {
 
     return (
       <div>
+        <p>
+          Sharing History
+        </p>
         <table>
           <thead>
             <tr>

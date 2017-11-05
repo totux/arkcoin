@@ -142,7 +142,7 @@ export class AppAcf extends Component {
         </td>
         <td> { index < 5 ? <b><font color='green'> { cand.name} </font></b> : cand.name }
         </td>
-        <td> { index < 5 ? <font color='green'> { cand.address} </font> : cand.address }
+        <td> <a href={"https://explorer.arkcoin.net/address/"+cand.address}>{ cand.address}</a>
         </td>
         <td> { index < 5 ? <b><font color='green'>  { Number (Math.round(cand.votes) ).toLocaleString('en') }  </font></b> : Number (Math.round(cand.votes) ).toLocaleString('en')  }
         </td>
@@ -152,12 +152,15 @@ export class AppAcf extends Component {
     return (
       <div>
       <p>
-          Deadline: {this.state.deadline}
+        <b>ACF Board Voting</b>
       </p>
       <p>
-          Height: {this.state.height.height}
+        Send 0.00000001 Ark to a candidate address to vote.<br/>
+        You can vote for multiple candidates.
       </p>
       <p>
+          Deadline on Block: {this.state.deadline} <br/>
+          Current Block Height: {this.state.height.height} <br/>
           Blocks remaining: <font color='red'>{ this.state.deadline - this.state.height.height }</font>
       </p>
         <table>
