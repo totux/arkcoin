@@ -12,12 +12,8 @@
   height:  100px;
   padding: 0px;
   color: white;
-}
-
-.AppHeader {
   position: relative;
-  text-align: center;
-  color: white;
+  text-align: center;  
 }
 
 .AppHeader nav {
@@ -30,17 +26,6 @@
 .AppHeader a {
     color: white;
     text-decoration: none;
-}
-
-.AppHeader a:link, a:visited {
-  padding: 0px 0px;
-  text-align: center; 
-  text-decoration: none;
-  display: inline-block;
-}
-
-.AppHeader a:hover, a:active {
-  background-color: #ae0402;
 }
 
 .AppNews a.atdate {
