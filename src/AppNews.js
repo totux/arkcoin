@@ -29,12 +29,10 @@ export class AppNews extends Component {
   }
 
   getTimeCounter(t) {
-    var arkStart = moment([2017, 2, 21, 13, 0, 0, 0]);
+    var arkStart = moment([2017, 2, 21, 14, 0, 0, 0]);
     var dt = arkStart.add(t, 's');
 
-    var now = moment();
-
-    return dt.format('LLL') + ' (' + dt.to(now, true) + ' ago)';
+    return dt.format('LLL') + ' (' + dt.fromNow() + ')';
   }
 
   getFormatedDateTime(value) {
