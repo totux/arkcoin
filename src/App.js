@@ -40,6 +40,7 @@ class AppMain extends Component {
       <div className="AppMain">
         <Switch>
           <Route exact path='/' component={AppNews}/>
+          <Route path='/news' component={AppNews}/>
           <Route path='/links' component={AppLinks}/>
           <Route path='/delegates' component={AppDelegate}/>
           <Route path='/voters' component={AppVoters}/>          
