@@ -20,7 +20,7 @@ class AppHeader extends Component {
       <div className="AppHeader">
         <img src={ logo } className="AppLogo" alt="logo" />
         <nav>
-          <Link to='/'>News</Link> &nbsp;
+          <Link to='/news'>News</Link> &nbsp;
           <Link to='/links'>Links</Link> &nbsp;     
           <Link to='/delegates'>Delegates</Link> &nbsp;
           <Link to='/voters'>Voters</Link> &nbsp;
