@@ -47,7 +47,7 @@ export class AppPaymentVoter extends Component {
         </td>
         <td> { Number (payment.EarnedAmountXX).toLocaleString('en') }
         </td>
-        <td> <a href={"https://explorer.arkcoin.net/tx/"+payment.Transaction.id}> {payment.Transaction.id.substring(0,6)+"..."} </a>
+        <td> <a href={"https://scan.arkcoin.net/tx/"+payment.Transaction.id}> {payment.Transaction.id.substring(0,6)+"..."} </a>
         </td>
       </tr>
     );
@@ -55,7 +55,7 @@ export class AppPaymentVoter extends Component {
     return (
       <div>
         <p>
-        <a href={"https://explorer.arkcoin.net/address/"+this.props.match.params.id}> {this.props.match.params.id}</a>
+        <a href={"https://scan.arkcoin.net/address/"+this.props.match.params.id}> {this.props.match.params.id}</a>
         </p>
         <table>
           <thead>
@@ -66,7 +66,7 @@ export class AppPaymentVoter extends Component {
               </th>
               <th> Paid
               </th>
-              <th> Explorer
+              <th> scan
               </th>
             </tr>
           </thead>

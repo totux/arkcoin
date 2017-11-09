@@ -38,7 +38,7 @@ export class AppNews extends Component {
 
   fetchData(page) {   
     var that = this;
-    var url = "https://explorer.arkcoin.net/api/getTransactionsByAddress?address=AZHXnQAYajd3XkxwwiL6jnLjtDHjtAATtR&limit=50&offset=" + page + "&direction=received";
+    var url = "https://scan.arkcoin.net/api/getTransactionsByAddress?address=AZHXnQAYajd3XkxwwiL6jnLjtDHjtAATtR&limit=50&offset=" + page + "&direction=received";
     fetch(url)
       .then(function (response) {
         if (response.status >= 400) {
@@ -82,7 +82,7 @@ export class AppNews extends Component {
                 <Linkify> {news.vendorField}</Linkify>  }  
               <br/>
                 <font color="grey" size="1">
-                  <a href={"https://explorer.arkcoin.net/tx/"+news.id} className="atdate">@</a>&nbsp;
+                  <a href={"https://scan.arkcoin.net/tx/"+news.id} className="atdate">@</a>&nbsp;
                   {this.getTimeCounter(news.timestamp)}
                 </font>          
             </td>               
@@ -93,7 +93,7 @@ export class AppNews extends Component {
       <div className="AppNews">
         <p>
           Send a transaction with vendorfield to <br/>
-          <a href="https://explorer.arkcoin.net/address/AZHXnQAYajd3XkxwwiL6jnLjtDHjtAATtR">AZHXnQAYajd3XkxwwiL6jnLjtDHjtAATtR</a> <br/>
+          <a href="https://scan.arkcoin.net/address/AZHXnQAYajd3XkxwwiL6jnLjtDHjtAATtR">AZHXnQAYajd3XkxwwiL6jnLjtDHjtAATtR</a> <br/>
           (Regular:0.1 - Premium:1.0) <br/>
         </p> 
         <p>

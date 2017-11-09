@@ -11,7 +11,7 @@ export class AppDelegate extends Component {
 
   componentDidMount() {
     var that = this;
-    var url = `https://explorer.arkcoin.net/api/delegates/getactive`;
+    var url = `https://scan.arkcoin.net/api/delegates/getactive`;
     fetch(url)
       .then(function(response) {
         if (response.status >= 400) {
@@ -83,7 +83,7 @@ class AppStandby extends Component {
 
   componentDidMount() {
     var that = this;
-    var url = `https://explorer.arkcoin.net/api/delegates/getStandby`;
+    var url = `https://scan.arkcoin.net/api/delegates/getStandby`;
     fetch(url)
       .then(function(response) {
         if (response.status >= 400) {

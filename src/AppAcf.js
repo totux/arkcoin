@@ -143,7 +143,7 @@ export class AppAcf extends Component {
         </td>
         <td> { index < 5 ? <b><font color='green'> { cand.name} </font></b> : cand.name }
         </td>
-        <td> <a href={"https://explorer.arkcoin.net/address/"+cand.address}>{ cand.address}</a>
+        <td> <a href={"https://scan.arkcoin.net/address/"+cand.address}>{ cand.address}</a>
         </td>
         <td> { index < 5 ? <b><font color='green'>  { Number (Math.round(cand.votes) ).toLocaleString('en') }  </font></b> : Number (Math.round(cand.votes) ).toLocaleString('en')  }
         </td>

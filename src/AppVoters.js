@@ -12,7 +12,7 @@ export class AppVoters extends Component {
 
   componentDidMount() {
     var that = this;
-    var url = 'https://explorer.arkcoin.net/api/getAccount?address=Aasu14aTs9ipZdy1FMv7ay1Vqn3jPskA8t';
+    var url = 'https://scan.arkcoin.net/api/getAccount?address=Aasu14aTs9ipZdy1FMv7ay1Vqn3jPskA8t';
     fetch(url)
       .then(function(response) {
         if (response.status >= 400) {
