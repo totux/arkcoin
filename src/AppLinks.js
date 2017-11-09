@@ -78,12 +78,17 @@ export class AppLinks extends Component {
           <tbody>
             <tr>
               <td>
-                <a href="https://scan.arkcoin.net/">scan</a>
+                <a href="https://explorer.arkcoin.net/">explorer</a>
               </td>
             </tr>
             <tr>
               <td>
-                <a href="https://dscan.arkcoin.net/">devnet scan</a>
+                <a href="https://scan.arkcoin.net/">backup explorer</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="https://dexplorer.arkcoin.net/">devnet explorer</a>
               </td>
             </tr>
             <tr>
