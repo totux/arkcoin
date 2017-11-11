@@ -129,14 +129,14 @@ export class AppNews extends Component {
             type="button"
             onClick={() => this.lastPage(this.state.page)}
           >Previous</button>
-        : <div/>}     
+        : " "}     
           &nbsp; page {this.state.page / 50} &nbsp; 
        {this.state.news.transactions.length === 50 ?
        <button
             type="button"
             onClick={() => this.nextPage(this.state.page)}
           >Next</button>  
-        : <div/>}          
+        : " "}          
         </p>
       </div>
 

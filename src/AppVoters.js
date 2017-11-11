@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
+const satoshi = 1/100000000;
+
 export class AppVoters extends Component {
   constructor(props) {
     super(props);
@@ -35,6 +37,9 @@ export class AppVoters extends Component {
           </p>
           <p> loading
           </p>
+          <p>
+          <Link to='/votespy'>Vote Spy</Link>
+          </p>          
         </div>
       );
     }
@@ -46,7 +51,7 @@ export class AppVoters extends Component {
             <tr key={voter.address}>
                 <td> <Link to={'/paymentvoter/' + voter.address}> {voter.address} </Link>
                 </td>
-                <td> { Number (voter.balance / 100000000 ).toLocaleString('en') }
+                <td> { Number (voter.balance * satoshi ).toLocaleString('en') }
                 </td>
             </tr>
         );
@@ -54,9 +59,10 @@ export class AppVoters extends Component {
     return (
       <div>
         <p>
-          Ark: {Number (Math.round(this.state.delegate.delegate.vote / 100000000) ).toLocaleString('en') } <br/>
-          Voters: {this.state.delegate.voters.length} <br/>
-          Average: {Number (Math.round(this.state.delegate.delegate.vote / 100000000 / this.state.delegate.voters.length) ).toLocaleString('en') }
+          Vote History
+        </p>
+        <p>
+          <Link to='/votespy'>Vote Spy</Link>
         </p>
         <table>
           <thead>
