@@ -41,11 +41,11 @@ export class AppDelegate extends Component {
 
     const delegateRow = this.state.delegates.map((delegate) =>
       <tr key={ delegate.username }>
-        <td><Link to={'/voters/' + delegate.address}> {delegate.rate} </Link>
+        <td><Link to={'/votespy/' + delegate.publicKey}> {delegate.rate} </Link>
         </td>
         <td>{ delegate.username === 'jarunik' ? <b> { delegate.username } </b> : delegate.username }
         </td>
-        <td><Link to={'/votespy/' + delegate.publicKey}>{ Number (Math.round(delegate.vote / 100000000) ).toLocaleString('en') }</Link>
+        <td><Link to={'/voters/' + delegate.address}>{ Number (Math.round(delegate.vote / 100000000) ).toLocaleString('en') }</Link>
         </td>
       </tr>
     );
@@ -55,18 +55,14 @@ export class AppDelegate extends Component {
         <p>
           <b>Delegates</b>
         </p>
-        <p>
-          Rank Link: Voter List<br/>
-          Vote Link: Vote Spy
-        </p>        
         <table>
           <thead>
             <tr>
-              <th>Rank
+              <th>Rank/Spy
               </th>
               <th>Delegate
               </th>
-              <th>Vote
+              <th>Vote/List
               </th>            
             </tr>
           </thead>
@@ -120,11 +116,11 @@ class AppStandby extends Component {
 
     const delegateRow = this.state.delegates.map((delegate) =>
     <tr key={ delegate.username }>
-      <td><Link to={'/voters/' + delegate.address}> {delegate.rate} </Link>
+      <td><Link to={'/votespy/' + delegate.publicKey}>{delegate.rate} </Link>
       </td>
       <td>{ delegate.username === 'jarunik' ? <b> { delegate.username } </b> : delegate.username }
       </td>
-      <td>{ Number (Math.round(delegate.vote / 100000000)).toLocaleString('en') }
+      <td><Link to={'/voters/' + delegate.address}> { Number (Math.round(delegate.vote / 100000000)).toLocaleString('en') } </Link>
       </td>
     </tr>
   );
@@ -135,11 +131,11 @@ class AppStandby extends Component {
         <table>
           <thead>
             <tr>
-              <th>Rank
+              <th>Rank/Spy
               </th>
               <th>Standby
               </th>
-              <th>Vote
+              <th>Vote/List
               </th>            
             </tr>
           </thead>
