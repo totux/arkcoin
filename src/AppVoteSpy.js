@@ -2,21 +2,23 @@ import React, { Component } from 'react';
 
 const satoshi = 1/100000000;
 
-export class AppVoteHistory extends Component {
+export class AppVoteSpy extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       voters: [],
       transactions: [],
-      fetchDone: false
+      fetchDone: false,
     }
   }
+
+  publicKey;
 
   signedAmount(transaction) {
     
       if (transaction.type === 3) {
-          if (transaction.asset.votes == "+02c7455bebeadde04728441e0f57f82f972155c088252bf7c1365eb0dc84fbf5de") {
+          if (transaction.asset.votes == "+"+this.publicKey) {
             return transaction.balance * satoshi;
           } else {
             return 0;  
@@ -32,7 +34,14 @@ export class AppVoteHistory extends Component {
 
   componentDidMount() {
     var that = this;
-    var url = 'https://api.arkcoin.net/api/delegates/voters?publicKey=02c7455bebeadde04728441e0f57f82f972155c088252bf7c1365eb0dc84fbf5de';
+    that.publicKey = that.props.match.params.id;
+
+    //Backward compatibility default to jarunik
+    if (typeof(that.publicKey) === "undefined") {
+      that.publicKey = "02c7455bebeadde04728441e0f57f82f972155c088252bf7c1365eb0dc84fbf5de";
+    }
+
+    var url = 'https://api.arkcoin.net/api/delegates/voters?publicKey='+that.publicKey;
     fetch(url)
       .then(function(response) {
         if (response.status >= 400) {
@@ -62,7 +71,7 @@ export class AppVoteHistory extends Component {
                     {
                         if (transaction.confirmations < 10800 &&
                             (transaction.amount*satoshi > 100 ||
-                            (transaction.type === 3 && transaction.asset.votes == "+02c7455bebeadde04728441e0f57f82f972155c088252bf7c1365eb0dc84fbf5de")
+                            (transaction.type === 3 && transaction.asset.votes == "+"+that.publicKey)
                             )
                         ) {
                             var transactionRow = transaction;
@@ -86,7 +95,7 @@ export class AppVoteHistory extends Component {
     if (!this.state.fetchDone) {
       return (
         <div>
-          <p> <b>Vote History</b> <br/>
+          <p> <b>Vote Changes</b> <br/>
               (for the last 24h)
           </p>
           <p> loading
@@ -124,7 +133,10 @@ export class AppVoteHistory extends Component {
     return (
       <div>
         <p>
-          <b>Vote History (1 day)</b>
+          <b>Vote Changes (1 day)</b>
+        </p>
+        <p>
+          {}
         </p>
         <table>
           <thead>

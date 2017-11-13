@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export class AppDelegate extends Component {
   constructor(props) {
@@ -40,17 +41,24 @@ export class AppDelegate extends Component {
 
     const delegateRow = this.state.delegates.map((delegate) =>
       <tr key={ delegate.username }>
-        <td>{ delegate.rate }
+        <td><Link to={'/voters/' + delegate.address}> {delegate.rate} </Link>
         </td>
         <td>{ delegate.username === 'jarunik' ? <b> { delegate.username } </b> : delegate.username }
         </td>
-        <td>{ Number (Math.round(delegate.vote / 100000000) ).toLocaleString('en') }
+        <td><Link to={'/votespy/' + delegate.publicKey}>{ Number (Math.round(delegate.vote / 100000000) ).toLocaleString('en') }</Link>
         </td>
       </tr>
     );
 
     return (
       <div>
+        <p>
+          <b>Delegates</b>
+        </p>
+        <p>
+          Rank Link: Voter List<br/>
+          Vote Link: Vote Spy
+        </p>        
         <table>
           <thead>
             <tr>
@@ -112,7 +120,7 @@ class AppStandby extends Component {
 
     const delegateRow = this.state.delegates.map((delegate) =>
     <tr key={ delegate.username }>
-      <td>{ delegate.rate }
+      <td><Link to={'/voters/' + delegate.address}> {delegate.rate} </Link>
       </td>
       <td>{ delegate.username === 'jarunik' ? <b> { delegate.username } </b> : delegate.username }
       </td>

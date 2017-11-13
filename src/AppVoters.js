@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const satoshi = 1/100000000;
 
@@ -14,7 +14,15 @@ export class AppVoters extends Component {
 
   componentDidMount() {
     var that = this;
-    var url = 'https://scan.arkcoin.net/api/getAccount?address=Aasu14aTs9ipZdy1FMv7ay1Vqn3jPskA8t';
+    var delegateAddress = that.props.match.params.id;
+    
+    console.log(delegateAddress);
+
+    //Backward compatibility default to jarunik
+    if (typeof(delegateAddress) === "undefined") {
+      delegateAddress = "Aasu14aTs9ipZdy1FMv7ay1Vqn3jPskA8t";
+    }
+    var url = 'https://scan.arkcoin.net/api/getAccount?address='+delegateAddress;
     fetch(url)
       .then(function(response) {
         if (response.status >= 400) {
@@ -36,9 +44,6 @@ export class AppVoters extends Component {
           <p> Voters
           </p>
           <p> loading
-          </p>
-          <p>
-          <Link to='/votespy'>Vote Spy</Link>
           </p>          
         </div>
       );
@@ -49,7 +54,7 @@ export class AppVoters extends Component {
         .sort((a, b) => b.balance - a.balance)
         .map((voter) =>
             <tr key={voter.address}>
-                <td> <Link to={'/paymentvoter/' + voter.address}> {voter.address} </Link>
+                <td> <a href={"https://scan.arkcoin.net/address/"+voter.address}>{voter.address}</a>
                 </td>
                 <td> { Number (voter.balance * satoshi ).toLocaleString('en') }
                 </td>
@@ -59,11 +64,13 @@ export class AppVoters extends Component {
     return (
       <div>
         <p>
-          Vote History
+          Voters of {this.state.delegate.delegate.username}
         </p>
         <p>
-          <Link to='/votespy'>Vote Spy</Link>
-        </p>
+          Ark: {Number (Math.round(this.state.delegate.delegate.vote * satoshi) ).toLocaleString('en') } <br/>
+          Voters: {this.state.delegate.voters.length} <br/>
+          Average: {Number (Math.round(this.state.delegate.delegate.vote * satoshi / this.state.delegate.voters.length) ).toLocaleString('en') }
+        </p>        
         <table>
           <thead>
             <tr>

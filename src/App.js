@@ -13,7 +13,7 @@ import { AppBittrex} from './AppBittrex.js'
 import { AppNews} from './AppNews.js'
 import { AppRewards } from './AppRewards.js'
 import { AppVoting } from './AppVoting.js'
-import { AppVoteHistory } from './AppVoteHistory.js'
+import { AppVoteSpy } from './AppVoteSpy.js'
 
 class AppHeader extends Component {
   render() {
@@ -25,6 +25,7 @@ class AppHeader extends Component {
           <Link to='/links'>Links</Link> &nbsp;     
           <Link to='/delegates'>Delegates</Link> &nbsp;
           <Link to='/voters'>Voters</Link> &nbsp;
+          <Link to='/votespy'>Spy</Link> &nbsp;           
           <Link to='/history'>History</Link> &nbsp;
           <Link to='/rewards'>Rewards</Link> &nbsp;          
           <Link to='/bittrex'>Bittrex</Link> &nbsp;   
@@ -44,8 +45,10 @@ class AppMain extends Component {
           <Route path='/news' component={AppNews}/>
           <Route path='/links' component={AppLinks}/>
           <Route path='/delegates' component={AppDelegate}/>
+          <Route path='/voters/:id' component={AppVoters}/>  
           <Route path='/voters' component={AppVoters}/>  
-          <Route path='/votespy' component={AppVoteHistory}/>                    
+          <Route path='/votespy/:id' component={AppVoteSpy}/>   
+          <Route path='/votespy' component={AppVoteSpy}/>                    
           <Route path='/history' component={AppHistory}/>
           <Route path='/paymentrun/:id' component={AppPaymentRun}/>
           <Route path='/paymentvoter/:id' component={AppPaymentVoter}/>
