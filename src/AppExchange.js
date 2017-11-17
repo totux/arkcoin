@@ -23,7 +23,7 @@ export class AppBittrex extends Component {
 
   componentDidMount() {
     var that = this;
-    var url = 'https://scan.arkcoin.net/api/getTransactionsByAddress?address=AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK&limit=50&offset=0';
+    var url = 'https://explorer.arkcoin.net/api/getTransactionsByAddress?address=AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK&limit=50&offset=0';
     fetch(url)
       .then(function(response) {
         if (response.status >= 400) {
@@ -37,7 +37,7 @@ export class AppBittrex extends Component {
         });
       });
 
-      var url2 = 'https://scan.arkcoin.net/api/getAccount?address=AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK';
+      var url2 = 'https://explorer.arkcoin.net/api/getAccount?address=AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK';
       fetch(url2)
         .then(function(response2) {
           if (response2.status >= 400) {
@@ -69,9 +69,9 @@ export class AppBittrex extends Component {
     const paymentRow = this.state.payments.transactions.map((payment) =>
       <tr key={ payment.id }>
         <td> { payment.senderId === bittrex ?
-            <a href={"https://scan.arkcoin.net/address/"+payment.recipientId}> {payment.recipientId}</a>
+            <a href={"https://explorer.arkcoin.net/address/"+payment.recipientId}> {payment.recipientId}</a>
             :
-            <a href={"https://scan.arkcoin.net/address/"+payment.senderId}> {payment.senderId}</a>
+            <a href={"https://explorer.arkcoin.net/address/"+payment.senderId}> {payment.senderId}</a>
             }
         </td>
         <td> 
@@ -100,7 +100,7 @@ export class AppBittrex extends Component {
     return (
       <div>
         <p>        
-          <a href={"https://scan.arkcoin.net/address/"+bittrex}> Bittrex</a>: {Number (Math.round(this.state.balance.balance / 100000000)).toLocaleString('en')}
+          <a href={"https://explorer.arkcoin.net/address/"+bittrex}> Bittrex</a>: {Number (Math.round(this.state.balance.balance / 100000000)).toLocaleString('en')}
         </p>          
         <table>
           <thead>
@@ -130,7 +130,7 @@ export class AppBinance extends Component {
 
   componentDidMount() {
     var that = this;
-    var url = 'https://scan.arkcoin.net/api/getTransactionsByAddress?address=AFrPtEmzu6wdVpa2CnRDEKGQQMWgq8nE9V&limit=50&offset=0';
+    var url = 'https://explorer.arkcoin.net/api/getTransactionsByAddress?address=AFrPtEmzu6wdVpa2CnRDEKGQQMWgq8nE9V&limit=50&offset=0';
     fetch(url)
       .then(function(response) {
         if (response.status >= 400) {
@@ -144,7 +144,7 @@ export class AppBinance extends Component {
         });
       });
 
-      var url2 = 'https://scan.arkcoin.net/api/getAccount?address=AFrPtEmzu6wdVpa2CnRDEKGQQMWgq8nE9V';
+      var url2 = 'https://explorer.arkcoin.net/api/getAccount?address=AFrPtEmzu6wdVpa2CnRDEKGQQMWgq8nE9V';
       fetch(url2)
         .then(function(response2) {
           if (response2.status >= 400) {
@@ -176,9 +176,9 @@ export class AppBinance extends Component {
     const paymentRow = this.state.payments.transactions.map((payment) =>
       <tr key={ payment.id }>
         <td> { payment.senderId === binance ?
-            <a href={"https://scan.arkcoin.net/address/"+payment.recipientId}> {payment.recipientId}</a>
+            <a href={"https://explorer.arkcoin.net/address/"+payment.recipientId}> {payment.recipientId}</a>
             :
-            <a href={"https://scan.arkcoin.net/address/"+payment.senderId}> {payment.senderId}</a>
+            <a href={"https://explorer.arkcoin.net/address/"+payment.senderId}> {payment.senderId}</a>
             }
         </td>
         <td> 
@@ -207,7 +207,7 @@ export class AppBinance extends Component {
     return (
       <div>
         <p>        
-          <a href={"https://scan.arkcoin.net/address/"+binance}> Binance</a>: {Number (Math.round(this.state.balance.balance / 100000000)).toLocaleString('en')}
+          <a href={"https://explorer.arkcoin.net/address/"+binance}> Binance</a>: {Number (Math.round(this.state.balance.balance / 100000000)).toLocaleString('en')}
         </p>          
         <table>
           <thead>
