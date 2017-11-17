@@ -92,7 +92,7 @@ export class AppNews extends Component {
     return (
       <div className="AppNews">
         <p>
-          Send a transaction with vendorfield to <br/>
+          Send a transaction with Smartbridge to <br/>
           <a href="https://scan.arkcoin.net/address/AZHXnQAYajd3XkxwwiL6jnLjtDHjtAATtR">AZHXnQAYajd3XkxwwiL6jnLjtDHjtAATtR</a> <br/>
           (Regular:0.1 - Premium:1.0) <br/>
         </p> 

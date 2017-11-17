@@ -31,11 +31,9 @@ export class AppRewards extends Component {
     if (typeof(this.state.rewards.count) === "undefined") {
       return (
         <div>
-          <p> Calculating Rewards now!
+          <p> Accumulated rewards
           </p>
-          <p> This will take a while.
-          </p>
-          <p> Thank you for your patience.
+          <p> loading
           </p>
         </div>
       );
@@ -56,6 +54,9 @@ export class AppRewards extends Component {
 
     return (
       <div>
+        <p>
+           Accumulated rewards with <b>jarunik</b>
+        </p>
         <table>
           <thead>
             <tr>

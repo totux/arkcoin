@@ -4,7 +4,7 @@ import moment from 'moment';
 const satoshi = 1/100000000;
 
 //Configure your Voting (also adapt optionList)
-
+const acitveVoting = false;
 // Voting Title
 const votingName = "ACF Board Voting";
 // How much Satoshi to send with vote TX 
@@ -56,6 +56,7 @@ export class AppVoting extends Component {
         {name:"turnip", address:"AFuNopRKj2VwhaTWQraZgPTT5nofXskBTN"}
     ];
 
+    if (acitveVoting) {
     optionList.forEach( function (option)
     {
         fetch("https://api.arkcoin.net/api/transactions?recipientId="+option.address+"&limit=0")
@@ -126,8 +127,7 @@ export class AppVoting extends Component {
                         }                                                               
                     });
                 }
-            }  
-            
+            }    
             
  
         });
@@ -144,7 +144,9 @@ export class AppVoting extends Component {
         that.setState({
           height : data2
         });
-      });    
+      });  
+      
+    }
 
   }
 
@@ -168,7 +170,7 @@ export class AppVoting extends Component {
         </td>
         <td> { index < winRank ? <b><font color='green'> { opt.name} </font></b> : opt.name }
         </td>
-        <td> <a href={"https://scan.arkcoin.net/address/"+opt.address}>{ opt.address}</a>
+        <td> <a href={"https://explorer.arkcoin.net/address/"+opt.address}>{ opt.address}</a>
         </td>
         <td> { index < winRank ? <b><font color='green'>  { Number (Math.round(opt.votes) ).toLocaleString('en') }  </font></b> : Number (Math.round(opt.votes) ).toLocaleString('en')  }
         </td>
@@ -176,41 +178,52 @@ export class AppVoting extends Component {
         </td>
       </tr>
     );
-
-    return (
-      <div className="AppVote">
-      <p>
-        <b>{votingName}</b>
-      </p>
-      <p>
-        Send {(voteAmount * satoshi).toLocaleString('en', {minimumFractionDigits: 8 })} Ark to an address below to vote for an option.<br/>
-        You can vote for multiple options.
-      </p>
-      <p>
-          Rank needed to win: { winRank} <br/>
-          Deadline on Block: {this.state.deadline} <br/>
-          Current Block Height: {this.state.height.height} <br/>
-          Blocks remaining: { this.state.deadline - this.state.height.height }<br/>
-          Estimated time remaining: <b><font color='red'>{moment.duration((this.state.deadline - this.state.height.height) * 8,'seconds').humanize()}</font></b> 
-      </p>
-        <table>
-          <thead>
-            <tr>
-            <th> Rank
-              </th>              
-            <th> Option
-              </th>
-              <th> Address
-              </th>
-              <th> Votes
-              </th>
-              <th> Voter
-              </th>
-            </tr>
-          </thead>
-          <tbody>{ optionRow }</tbody>
-        </table>
-      </div>
-    );
+    
+    if (acitveVoting) {
+      return (
+        <div className="AppVote">
+        <p>
+          <b>{votingName}</b>
+        </p>
+        <p>
+          Send {(voteAmount * satoshi).toLocaleString('en', {minimumFractionDigits: 8 })} Ark to an address below to vote for an option.<br/>
+          You can vote for multiple options.
+        </p>
+        <p>
+            Rank needed to win: { winRank} <br/>
+            Deadline on Block: {this.state.deadline} <br/>
+            Current Block Height: {this.state.height.height} <br/>
+            Blocks remaining: { this.state.deadline - this.state.height.height }<br/>
+            Estimated time remaining: <b><font color='red'>{moment.duration((this.state.deadline - this.state.height.height) * 8,'seconds').humanize()}</font></b> 
+        </p>
+          <table>
+            <thead>
+              <tr>
+              <th> Rank
+                </th>              
+              <th> Option
+                </th>
+                <th> Address
+                </th>
+                <th> Votes
+                </th>
+                <th> Voter
+                </th>
+              </tr>
+            </thead>
+            <tbody>{ optionRow }</tbody>
+          </table>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <p> <b>Voting</b> <br/>
+          </p>
+          <p> There is currently no active voting.
+          </p>
+        </div>
+      );      
+    }
   }
 }

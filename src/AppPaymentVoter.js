@@ -31,7 +31,7 @@ export class AppPaymentVoter extends Component {
     if (typeof(this.state.payments.count) === "undefined") {
       return (
         <div>
-          <p> Payments
+          <p> Sharing
           </p>
           <p> loading
           </p>
@@ -55,6 +55,9 @@ export class AppPaymentVoter extends Component {
     return (
       <div>
         <p>
+          Sharing history of voter:
+        </p>
+        <p>
         <a href={"https://scan.arkcoin.net/address/"+this.props.match.params.id}> {this.props.match.params.id}</a>
         </p>
         <table>
@@ -66,7 +69,7 @@ export class AppPaymentVoter extends Component {
               </th>
               <th> Paid
               </th>
-              <th> scan
+              <th> Tx
               </th>
             </tr>
           </thead>

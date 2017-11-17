@@ -16,13 +16,11 @@ export class AppVoters extends Component {
     var that = this;
     var delegateAddress = that.props.match.params.id;
     
-    console.log(delegateAddress);
-
     //Backward compatibility default to jarunik
     if (typeof(delegateAddress) === "undefined") {
       delegateAddress = "Aasu14aTs9ipZdy1FMv7ay1Vqn3jPskA8t";
     }
-    var url = 'https://scan.arkcoin.net/api/getAccount?address='+delegateAddress;
+    var url = 'https://explorer.arkcoin.net/api/getAccount?address='+delegateAddress;
     fetch(url)
       .then(function(response) {
         if (response.status >= 400) {
@@ -54,7 +52,7 @@ export class AppVoters extends Component {
         .sort((a, b) => b.balance - a.balance)
         .map((voter) =>
             <tr key={voter.address}>
-                <td> <a href={"https://scan.arkcoin.net/address/"+voter.address}>{voter.address}</a>
+                <td> <a href={"https://explorer.arkcoin.net/address/"+voter.address}>{voter.address}</a>
                 </td>
                 <td> { Number (voter.balance * satoshi ).toLocaleString('en') }
                 </td>
@@ -64,7 +62,7 @@ export class AppVoters extends Component {
     return (
       <div>
         <p>
-          Voters of {this.state.delegate.delegate.username}
+          Voters of <b>{this.state.delegate.delegate.username}</b>
         </p>
         <p>
           Ark: {Number (Math.round(this.state.delegate.delegate.vote * satoshi) ).toLocaleString('en') } <br/>

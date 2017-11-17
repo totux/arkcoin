@@ -32,7 +32,7 @@ export class AppPaymentRun extends Component {
     if (typeof(this.state.payments.count) === "undefined") {
       return (
         <div>
-          <p> History
+          <p> Sharing run
           </p>
           <p> loading
           </p>
@@ -53,10 +53,17 @@ export class AppPaymentRun extends Component {
 
     return (
       <div>
+        <p>
+          Sharing run of <b>jarunik</b>
+        </p>
+        <p>
+          Run: {this.state.payments.data[0].PaymentRecordID}<br/>
+          Date: { this.state.payments.data[0].CreatedAt.substring(0,10) }
+        </p>
         <table>
           <thead>
             <tr>
-              <th> Address
+              <th> Voter
               </th>
               <th> Votes
               </th>

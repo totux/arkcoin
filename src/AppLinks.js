@@ -120,12 +120,7 @@ export class AppLinks extends Component {
           <tbody>
             <tr>
               <td>
-                <a href="https://github.com/Jarunik/arkcoin">arkcoin website</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://github.com/Jarunik/ark-media">media collection</a>
+                <a href="https://github.com/jarunik/">jarunik</a>
               </td>
             </tr>
           </tbody>

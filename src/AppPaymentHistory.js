@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
-export class AppHistory extends Component {
+export class AppPaymentHistory extends Component {
   constructor(props) {
     super(props);
 
@@ -31,7 +31,7 @@ export class AppHistory extends Component {
     if (typeof(this.state.paymentruns.count) === "undefined") {
       return (
         <div>
-          <p> History of Payment Runs
+          <p> Payment history of <b>jarunik</b>
           </p>
           <p> loading
           </p>
@@ -55,7 +55,10 @@ export class AppHistory extends Component {
     return (
       <div>
         <p>
-          Sharing History
+          Payment history of <b>jarunik</b>
+        </p>
+        <p>
+          <Link to='/rewards'>Accumulated Rewards</Link> &nbsp;   
         </p>
         <table>
           <thead>

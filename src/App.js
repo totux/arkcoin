@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
 import { Switch, Route, Link } from 'react-router-dom'
 
 import { AppLinks } from './AppLinks.js'
 import { AppDelegate } from './AppDelegate.js'
 import { AppVoters } from './AppVoters.js'
-import { AppHistory } from './AppHistory.js'
+import { AppPaymentHistory } from './AppPaymentHistory.js'
 import { AppPaymentRun} from './AppPaymentRun.js'
 import { AppPaymentVoter} from './AppPaymentVoter.js'
-import { AppBittrex} from './AppBittrex.js'
+import { AppExchange} from './AppExchange.js'
 import { AppNews} from './AppNews.js'
 import { AppRewards } from './AppRewards.js'
 import { AppVoting } from './AppVoting.js'
@@ -23,13 +23,9 @@ class AppHeader extends Component {
         <nav>
           <Link to='/news'>News</Link> &nbsp;
           <Link to='/links'>Links</Link> &nbsp;     
-          <Link to='/delegates'>Delegates</Link> &nbsp;
-          <Link to='/voters'>Voters</Link> &nbsp;
-          <Link to='/votespy'>Spy</Link> &nbsp;           
-          <Link to='/history'>History</Link> &nbsp;
-          <Link to='/rewards'>Rewards</Link> &nbsp;          
-          <Link to='/bittrex'>Bittrex</Link> &nbsp;   
-          <Link to='/voting'>Voting</Link>
+          <Link to='/delegates'>Delegates</Link> &nbsp;        
+          <Link to='/paymenthistory'>History</Link> &nbsp;       
+          <Link to='/exchange'>Exchange</Link> &nbsp;   
         </nav>
       </div>
     );
@@ -46,16 +42,19 @@ class AppMain extends Component {
           <Route path='/links' component={AppLinks}/>
           <Route path='/delegates' component={AppDelegate}/>
           <Route path='/voters/:id' component={AppVoters}/>  
-          <Route path='/voters' component={AppVoters}/>  
-          <Route path='/votespy/:id' component={AppVoteSpy}/>   
-          <Route path='/votespy' component={AppVoteSpy}/>                    
-          <Route path='/history' component={AppHistory}/>
+          <Route path='/votespy/:id' component={AppVoteSpy}/>                    
+          <Route path='/paymenthistory' component={AppPaymentHistory}/>
           <Route path='/paymentrun/:id' component={AppPaymentRun}/>
           <Route path='/paymentvoter/:id' component={AppPaymentVoter}/>
           <Route path='/rewards' component={AppRewards}/>
-          <Route path='/bittrex' component={AppBittrex}/>
-          <Route path='/acf' component={AppVoting}/>
+          <Route path='/exchange' component={AppExchange}/>
           <Route path='/voting' component={AppVoting}/>
+          {/*Legacy routes*/}
+          <Route path='/history' component={AppPaymentHistory}/>
+          <Route path='/bittrex' component={AppExchange}/>
+          <Route path='/acf' component={AppVoting}/>
+          <Route path='/voters' component={AppVoters}/>  
+          <Route path='/votespy' component={AppVoteSpy}/>   
         </Switch>
       </div>
     );

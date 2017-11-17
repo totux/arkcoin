@@ -117,7 +117,7 @@ export class AppVoteSpy extends Component {
         .sort((a, b) => b.timestamp - a.timestamp)
         .map((transaction) =>
             <tr key={transaction.voter+transaction.id}>
-                <td> <a href={"https://scan.arkcoin.net/address/"+transaction.voter}> {transaction.voter}</a>
+                <td> <a href={"https://explorer.arkcoin.net/address/"+transaction.voter}> {transaction.voter}</a>
                 </td>
                 <td> {transaction.type === 3 ? "Vote":"TX"}
                 </td>
