@@ -19,8 +19,13 @@ export class AppLinks extends Component {
           <tbody>
             <tr>
               <td>
-                <a href="https://www.reddit.com/r/ArkDelegates/wiki/jarunik">delegate proposal</a>
+                <a href="https://www.reddit.com/r/DelegateJarunik/wiki/proposal">delegate proposal</a>
               </td>
+            </tr>
+            <tr>
+                <td>
+                  <a href="https://www.reddit.com/r/DelegateJarunik/">delgate subreddit</a>
+                </td>
             </tr>
             <tr>
               <td>
