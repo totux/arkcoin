@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Linkify from 'react-linkify';
 import moment from 'moment';
+import { Button , ToggleButtonGroup , ToggleButton } from 'react-bootstrap';
 
 export class AppNews extends Component {
   constructor(props) {
@@ -94,24 +95,22 @@ export class AppNews extends Component {
         <p>
           Send a transaction with Smartbridge to <br/>
           <a href="https://explorer.arkcoin.net/address/AZHXnQAYajd3XkxwwiL6jnLjtDHjtAATtR">AZHXnQAYajd3XkxwwiL6jnLjtDHjtAATtR</a> <br/>
-          (Regular:0.1 - Premium:1.0) <br/>
+            Regular: 0.1 Ark  <br/>
+            Premium: 1.0 Ark
         </p> 
         <p>
-          <button
-            type="button"
-            onClick={() => this.setState({ filterKey: 0 })}
-          ><i>All</i></button>
-          &nbsp;
-          <button
-            type="button"
-            onClick={() => this.setState({ filterKey: 0.1 })}
-          >Regular</button>
-          &nbsp;
-          <button
-            type="button"
-            onClick={() => this.setState({ filterKey: 1.0 })}
-          ><b>Premium</b></button>
-        </p>
+          <ToggleButtonGroup bsSize="xs" type="radio" name="filter" defaultValue={0.1}>
+            <ToggleButton value={0} onClick={() => this.setState({ filterKey: 0 })}>
+              All
+            </ToggleButton>
+            <ToggleButton value={0.1} onClick={() => this.setState({ filterKey: 0.1 })}>
+              Regular
+            </ToggleButton>
+            <ToggleButton value={1.0} onClick={() => this.setState({ filterKey: 1.0 })}>
+              Premium
+            </ToggleButton>
+          </ToggleButtonGroup>
+          </p>
         <table>
           <thead>
             <tr>
@@ -123,20 +122,27 @@ export class AppNews extends Component {
             {newsRow}
           </tbody>
         </table>
+        <br/>
         <p>
-        {this.state.page > 0 ?
-        <button
-            type="button"
-            onClick={() => this.lastPage(this.state.page)}
-          >Previous</button>
-        : " "}     
-          &nbsp; page {this.state.page / 50} &nbsp; 
-       {this.state.news.transactions.length === 50 ?
-       <button
-            type="button"
-            onClick={() => this.nextPage(this.state.page)}
-          >Next</button>  
-        : " "}          
+          {this.state.page > 0 ?
+            <Button bsSize="xs" onClick={() => this.lastPage(this.state.page)}>
+              Previous
+            </Button>
+            : 
+            <Button bsSize="xs" onClick={() => this.lastPage(this.state.page)} disabled>
+              Previous
+            </Button>
+          }
+          &nbsp; page {this.state.page / 50} &nbsp;
+          {this.state.news.transactions.length === 50 ?
+            <Button bsSize="xs" onClick={() => this.nextPage(this.state.page)}>
+              Next
+            </Button>
+            :
+            <Button bsSize="xs" onClick={() => this.nextPage(this.state.page)} disabled>
+              Next
+            </Button>
+          }
         </p>
       </div>
 

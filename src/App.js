@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.png';
+import logo from './assets/logo.png';
 import './App.css';
 import { Switch, Route, Link } from 'react-router-dom'
 
@@ -15,18 +15,20 @@ import { AppRewards } from './AppRewards.js'
 import { AppVoting } from './AppVoting.js'
 import { AppVoteSpy } from './AppVoteSpy.js'
 
+
 class AppHeader extends Component {
+
   render() {
     return (
       <div className="AppHeader">
         <img src={ logo } className="AppLogo" alt="logo" />
-        <nav>
+        <p className = "Navigation">
           <Link to='/news'>News</Link> &nbsp;
-          <Link to='/links'>Links</Link> &nbsp;     
-          <Link to='/delegates'>Delegates</Link> &nbsp;        
-          <Link to='/paymenthistory'>History</Link> &nbsp;       
-          <Link to='/exchange'>Exchange</Link> &nbsp;   
-        </nav>
+          <Link to='/links'>Links</Link> &nbsp;
+          <Link to='/delegates'>Delegates</Link> &nbsp; 
+          <Link to='/paymenthistory'>History</Link> &nbsp;
+          <Link to='/exchange'>Exchange</Link>
+        </p>
       </div>
     );
   }

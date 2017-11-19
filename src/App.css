@@ -7,8 +7,12 @@
   height: 70px;
 }
 
+.AppJarunik {
+  height: 70px;
+}
+
 .AppHeader {
-  background-color: #222;
+  background-color: #202225ff;
   height:  100px;
   padding: 0px;
   color: white;
@@ -16,16 +20,26 @@
   text-align: center;  
 }
 
-.AppHeader nav {
-  position: absolute;
-  top: 75%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.AppHeader a {
+  color: white;
+  /*color: #f80000ff;*/
 }
 
-.AppHeader a {
-    color: white;
-    text-decoration: none;
+.AppMain a {
+  color: #0ba027ff;
+  /*color: #0bbd27ff;*/
+}
+
+.AppMain a:visited {
+  color: #0b5d27ff;
+  /*color: #0b7b27ff;*/ 
+}
+
+
+.AppMain {
+  text-align: center;  
+/*  color: white;
+  background-color: #36393eff;*/
 }
 
 .AppNews a.atdate {
@@ -35,10 +49,12 @@
 }
 
 table{
+  text-align: center;
   border-collapse: collapse;
   margin:auto;
 }
 
 table, th, td {
+  text-align: center;
   border-bottom: 1px solid #ddd;
 }
