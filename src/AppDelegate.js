@@ -52,9 +52,6 @@ export class AppDelegate extends Component {
 
     return (
       <div>
-        <p>
-          <b>Delegates</b>
-        </p>
         <table>
           <thead>
             <tr>

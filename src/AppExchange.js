@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import moment from 'moment';
+
+const satoshi = 1/100000000;
 
 export class AppExchange extends Component {
   render() {
@@ -18,6 +21,36 @@ export class AppBittrex extends Component {
     this.state = {
       payments: [],
       balance: []
+    }
+  }
+
+  fromNow(t) {
+    var arkStart = moment.utc([2017, 2, 21, 13, 0, 0, 0]).local();
+    var duration = moment.duration(t, 'seconds');
+    var dt = arkStart.add(duration);
+
+    return dt.fromNow();
+  }
+
+  balanceChange(transactions) {
+
+    const bittrex = "AUexKjGtgsSpVzPLs6jNMM6vJ6znEVTQWK";
+
+    var total = 0;
+
+    transactions.forEach(function (tx) {
+      if (tx.senderId === bittrex) {
+        total = total - tx.amount * satoshi;
+      } else {
+        total = total + tx.amount * satoshi;
+      }
+    }
+    )
+    
+    if (total <= 0) {
+      return <font color='green'>{Math.round(total)}</font>;
+    } else {
+      return <font color='red'>{Math.round(total)}</font>;
     }
   }
 
@@ -75,20 +108,20 @@ export class AppBittrex extends Component {
             }
         </td>
         <td> 
-        {payment.amount / 100000000 > 1000 ?
+        {payment.amount * satoshi > 1000 ?
             <b>
                 {payment.senderId === bittrex ?
-                    <font color='green'> {Number(-Math.round(payment.amount / 100000000)).toLocaleString('en')} </font>
+                    <font color='green'> {Number(-Math.round(payment.amount * satoshi)).toLocaleString('en')} </font>
                     :
-                    <font color='red'> {Number(Math.round(payment.amount / 100000000)).toLocaleString('en')} </font>
+                    <font color='red'> {Number(Math.round(payment.amount * satoshi)).toLocaleString('en')} </font>
                 }
             </b>  
             :
             <div>
                 {payment.senderId === bittrex ?
-                    <font color='green'> {Number (-Math.round(payment.amount / 100000000)).toLocaleString('en')} </font>
+                    <font color='green'> {Number (-Math.round(payment.amount * satoshi)).toLocaleString('en')} </font>
                     :
-                    <font color='red'> {Number(Math.round(payment.amount / 100000000)).toLocaleString('en')} </font>
+                    <font color='red'> {Number(Math.round(payment.amount * satoshi)).toLocaleString('en')} </font>
                 }
             </div>                  
         }         
@@ -99,8 +132,11 @@ export class AppBittrex extends Component {
 
     return (
       <div>
+        <br/>
         <p>        
-          <a href={"https://explorer.arkcoin.net/address/"+bittrex}> Bittrex</a>: {Number (Math.round(this.state.balance.balance / 100000000)).toLocaleString('en')}
+          <a href={"https://explorer.arkcoin.net/address/"+bittrex}> Bittrex</a>: {Number (Math.round(this.state.balance.balance / 100000000)).toLocaleString('en')} <br/>
+          Change: {this.balanceChange(this.state.payments.transactions)} <br/>
+          Since: {this.fromNow(this.state.payments.transactions[49].timestamp)}
         </p>          
         <table>
           <thead>
@@ -127,6 +163,36 @@ export class AppBinance extends Component {
       balance: []
     }
   }
+
+  fromNow(t) {
+    var arkStart = moment.utc([2017, 2, 21, 13, 0, 0, 0]).local();
+    var duration = moment.duration(t, 'seconds');
+    var dt = arkStart.add(duration);
+
+    return dt.fromNow();
+  }
+
+  balanceChange(transactions) {
+
+    const binance = "AFrPtEmzu6wdVpa2CnRDEKGQQMWgq8nE9V";
+
+    var total = 0;
+
+    transactions.forEach(function (tx) {
+      if (tx.senderId === binance) {
+        total = total - tx.amount * satoshi;
+      } else {
+        total = total + tx.amount * satoshi;
+      }
+    }
+    )
+    
+    if (total <= 0) {
+      return <font color='green'>{Math.round(total).toLocaleString('en')}</font>;
+    } else {
+      return <font color='red'>{Math.round(total).toLocaleString('en')}</font>;
+    }
+  }  
 
   componentDidMount() {
     var that = this;
@@ -182,20 +248,20 @@ export class AppBinance extends Component {
             }
         </td>
         <td> 
-        {payment.amount / 100000000 > 1000 ?
+        {payment.amount * satoshi > 1000 ?
             <b>
                 {payment.senderId === binance ?
-                    <font color='green'> {Number(-Math.round(payment.amount / 100000000)).toLocaleString('en')} </font>
+                    <font color='green'> {Number(-Math.round(payment.amount * satoshi)).toLocaleString('en')} </font>
                     :
-                    <font color='red'> {Number(Math.round(payment.amount / 100000000)).toLocaleString('en')} </font>
+                    <font color='red'> {Number(Math.round(payment.amount * satoshi)).toLocaleString('en')} </font>
                 }
             </b>  
             :
             <div>
                 {payment.senderId === binance ?
-                    <font color='green'> {Number (-Math.round(payment.amount / 100000000)).toLocaleString('en')} </font>
+                    <font color='green'> {Number (-Math.round(payment.amount * satoshi)).toLocaleString('en')} </font>
                     :
-                    <font color='red'> {Number(Math.round(payment.amount / 100000000)).toLocaleString('en')} </font>
+                    <font color='red'> {Number(Math.round(payment.amount * satoshi)).toLocaleString('en')} </font>
                 }
             </div>                  
         }         
@@ -206,8 +272,11 @@ export class AppBinance extends Component {
 
     return (
       <div>
+        <br/>
         <p>        
-          <a href={"https://explorer.arkcoin.net/address/"+binance}> Binance</a>: {Number (Math.round(this.state.balance.balance / 100000000)).toLocaleString('en')}
+          <a href={"https://explorer.arkcoin.net/address/"+binance}> Binance</a>: {Number (Math.round(this.state.balance.balance * satoshi)).toLocaleString('en')}<br/>
+          Change: {this.balanceChange(this.state.payments.transactions)} <br/>
+          Since: {this.fromNow(this.state.payments.transactions[49].timestamp)}
         </p>          
         <table>
           <thead>

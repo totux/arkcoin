@@ -3,6 +3,8 @@ import Linkify from 'react-linkify';
 import moment from 'moment';
 import { Button , ToggleButtonGroup , ToggleButton } from 'react-bootstrap';
 
+const satoshi = 1/100000000;
+
 export class AppNews extends Component {
   constructor(props) {
     super(props);
@@ -35,6 +37,24 @@ export class AppNews extends Component {
     var dt = arkStart.add(duration);
 
     return dt.format('LLL') + ' (' + dt.fromNow() + ')';
+  }
+
+  resolveSenderId(senderId , tx) {
+    const sender = {
+      "ANaBAcnie5vcaHRgwrCUijyvkLgRA8zP6S": "jarunik",
+      "AZFz6Tf7KJQfzkfNDK93TavXJjUvb23xoa": "jarunik"
+    };
+
+    if (tx.senderDelegate !== null) {
+      console.log(tx.senderDelegate);
+      return <a href={"https://explorer.arkcoin.net/address/"+senderId}>{tx.senderDelegate.username}</a>;
+    }
+
+    if (sender[senderId] !== undefined) {
+      return <a href={"https://explorer.arkcoin.net/address/"+senderId}>{sender[senderId]}</a>;
+    } else {
+      return <a href={"https://explorer.arkcoin.net/address/"+senderId}>{senderId.substring(0,10)}</a>;
+    }
   }
 
   fetchData(page) {   
@@ -84,8 +104,10 @@ export class AppNews extends Component {
               <br/>
                 <font color="grey" size="1">
                   <a href={"https://explorer.arkcoin.net/tx/"+news.id} className="atdate">@</a>&nbsp;
-                  {this.getTimeCounter(news.timestamp)}
-                </font>          
+                  {this.getTimeCounter(news.timestamp)}&nbsp;
+                  by &nbsp;
+                  {this.resolveSenderId(news.senderId,news)}
+                </font>                                     
             </td>               
         </tr>
     );
@@ -98,7 +120,6 @@ export class AppNews extends Component {
             Regular: 0.1 Ark  <br/>
             Premium: 1.0 Ark
         </p> 
-        <p>
           <ToggleButtonGroup bsSize="xs" type="radio" name="filter" defaultValue={0.1}>
             <ToggleButton value={0} onClick={() => this.setState({ filterKey: 0 })}>
               All
@@ -110,7 +131,6 @@ export class AppNews extends Component {
               Premium
             </ToggleButton>
           </ToggleButtonGroup>
-          </p>
         <table>
           <thead>
             <tr>

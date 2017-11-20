@@ -22,30 +22,19 @@
 
 .AppHeader a {
   color: white;
-  /*color: #f80000ff;*/
 }
 
 .AppMain a {
   color: #0ba027ff;
-  /*color: #0bbd27ff;*/
 }
 
 .AppMain a:visited {
   color: #0b5d27ff;
-  /*color: #0b7b27ff;*/ 
 }
 
 
 .AppMain {
   text-align: center;  
-/*  color: white;
-  background-color: #36393eff;*/
-}
-
-.AppNews a.atdate {
-  text-decoration: none;
-  color: grey;
-  size: 1;
 }
 
 table{
