@@ -48,9 +48,9 @@ export class AppBittrex extends Component {
     )
     
     if (total <= 0) {
-      return <font color='green'>{Math.round(total)}</font>;
+      return <font color='green'>{Math.round(total).toLocaleString('en')}</font>;
     } else {
-      return <font color='red'>{Math.round(total)}</font>;
+      return <font color='red'>{Math.round(total).toLocaleString('en')}</font>;
     }
   }
 
