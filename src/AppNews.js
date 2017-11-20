@@ -92,13 +92,13 @@ export class AppNews extends Component {
     }
 
     const newsRow = [].concat(this.state.news.transactions)
-    .filter((news) => news.vendorField !== undefined && news.amount >= this.state.filterKey * 100000000  )
+    .filter((news) => news.vendorField !== undefined && news.amount >= this.state.filterKey / satoshi  )
     .map((news) =>
         <tr key={news.id}>
             <td>
-              { news.amount >= 1 * 100000000 ?
+              { news.amount >= 1 / satoshi ?
                 <b><Linkify> {news.vendorField}</Linkify></b> :
-                news.amount < 0.1 * 100000000 ?
+                news.amount < 0.1 / satoshi ?
                 <i><Linkify> {news.vendorField}</Linkify></i>:
                 <Linkify> {news.vendorField}</Linkify>  }  
               <br/>
