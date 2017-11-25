@@ -18,13 +18,14 @@ export class AppVoteSpy extends Component {
   signedAmount(transaction) {
     
       if (transaction.type === 3) {
+          // eslint-disable-next-line
           if (transaction.asset.votes == "+"+this.publicKey) {
             return transaction.balance * satoshi;
           } else {
             return 0;  
           }
       } else {
-          if (transaction.voter == transaction.recipientId) {
+          if (transaction.voter === transaction.recipientId) {
             return transaction.amount * satoshi;
           } else {
             return -Math.abs(transaction.amount * satoshi);  
@@ -71,6 +72,7 @@ export class AppVoteSpy extends Component {
                     {
                         if (transaction.confirmations < 10800 &&
                             (transaction.amount*satoshi > 100 ||
+                            // eslint-disable-next-line
                             (transaction.type === 3 && transaction.asset.votes == "+"+that.publicKey)
                             )
                         ) {
@@ -86,9 +88,9 @@ export class AppVoteSpy extends Component {
                     that.setState({ fetchDone: true });
                     }
                 });
-            }
-        });
-      });
+            }         
+        });  
+      });         
   }
 
   render() {

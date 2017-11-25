@@ -90,6 +90,7 @@ export class AppVoting extends Component {
                         }
                         return response.json();
                     })
+                     // eslint-disable-next-line
                     .then(function(info2) {            
                         looper = looper +1;
                         //extract unique voters  
