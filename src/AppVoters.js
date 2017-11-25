@@ -53,7 +53,7 @@ export class AppVoters extends Component {
             <tr key={voter.address}>
                 <td> <a href={"https://explorer.arkcoin.net/address/"+voter.address}>{voter.address}</a>
                 </td>
-                <td> { Number (voter.balance * satoshi ).toLocaleString('en') }
+                <td> { Number (Math.round(voter.balance * satoshi)).toLocaleString('en') }
                 </td>
             </tr>
         );

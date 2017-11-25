@@ -122,8 +122,8 @@ export class AppVoteSpy extends Component {
                 <td> {transaction.type === 3 ? "Vote":"TX"}
                 </td>
                 <td> {this.signedAmount(transaction) > 0
-                ? <font color="green"> {this.signedAmount(transaction).toLocaleString('en')} </font> 
-                : <font color="red"> {this.signedAmount(transaction).toLocaleString('en')} </font> 
+                ? <font color="green"> {Math.round(this.signedAmount(transaction)).toLocaleString('en')} </font> 
+                : <font color="red"> {Math.round(this.signedAmount(transaction)).toLocaleString('en')} </font> 
                 }
                 </td>
 

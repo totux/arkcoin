@@ -47,7 +47,7 @@ export class AppPaymentHistory extends Component {
         </td>
         <td> { run.NrOfTransactions }
         </td>
-        <td> { Number (run.VoteWeight / 100000000).toLocaleString('en') }
+        <td> { Number (Math.round(run.VoteWeight / 100000000)).toLocaleString('en') }
         </td>
       </tr>
     );
