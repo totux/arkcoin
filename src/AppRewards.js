@@ -45,9 +45,9 @@ export class AppRewards extends Component {
       <tr key={ reward.Address }>
         <td> <Link to={'/paymentvoter/'+reward.Address}> { reward.Address } </Link>
         </td>
-        <td> { Number((reward.VoteWeight).toFixed(1)) }
+        <td> { Number((reward.VoteWeight).toFixed(0)).toLocaleString('en') }
         </td>
-        <td> { Number (reward.EarnedAmountXX).toLocaleString('en') }
+        <td> { Number (reward.EarnedAmountXX).toFixed(2).toLocaleString('en') }
         </td>
       </tr>
     );

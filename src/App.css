@@ -38,11 +38,12 @@
 
 table {
   text-align: center;
+  margin: auto;
   border-collapse: collapse;
-  margin:auto;
 }
 
 table, th, td {
+  padding: 0px 4px;
   text-align: center;
   border-bottom: 1px solid #ddd;
 }
