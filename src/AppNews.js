@@ -11,7 +11,7 @@ export class AppNews extends Component {
 
     this.state = {
       news: [],
-      filterKey: 0.1,
+      filterKey: 0,
       page: 0
     }
   }
@@ -120,7 +120,7 @@ export class AppNews extends Component {
             Regular: 0.1 Ark  <br/>
             Premium: 1.0 Ark
         </p> 
-          <ToggleButtonGroup bsSize="xs" type="radio" name="filter" defaultValue={0.1}>
+          <ToggleButtonGroup bsSize="xs" type="radio" name="filter" defaultValue={0}>
             <ToggleButton value={0} onClick={() => this.setState({ filterKey: 0 })}>
               All
             </ToggleButton>
