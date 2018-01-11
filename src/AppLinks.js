@@ -29,11 +29,6 @@ export class AppLinks extends Component {
             </tr>
             <tr>
               <td>
-                <a href="https://discord.gg/m7bt2js">delegate discord chat</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
                 <a href="https://medium.com/@jarunik">medium blog</a>
               </td>
             </tr>
@@ -62,11 +57,6 @@ export class AppLinks extends Component {
             <tr>
               <td>
                 <a href="https://www.reddit.com/r/arktrader/"> /r/arktrader</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://arkchat.net">discord chat</a>
               </td>
             </tr>
           </tbody>
