@@ -78,11 +78,6 @@ export class AppLinks extends Component {
             </tr>
             <tr>
               <td>
-                <a href="https://dexplorer.arkcoin.net/">devnet explorer</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
                 <a href="https://api.arkcoin.net/api/peers/version">mainnet node api</a>
               </td>
             </tr>
