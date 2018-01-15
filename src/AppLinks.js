@@ -34,7 +34,7 @@ export class AppLinks extends Component {
             </tr>
             <tr>
               <td>
-                <a href="https://doc.arkcoin.net">Downloads</a>
+                <a href="https://doc.arkcoin.net">downloads</a>
               </td>
             </tr>
           </tbody>
