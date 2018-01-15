@@ -32,6 +32,11 @@ export class AppLinks extends Component {
                 <a href="https://medium.com/@jarunik">medium blog</a>
               </td>
             </tr>
+            <tr>
+              <td>
+                <a href="https://doc.arkcoin.net">Downloads</a>
+              </td>
+            </tr>
           </tbody>
         </table>
         <br />
