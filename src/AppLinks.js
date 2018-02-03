@@ -91,11 +91,6 @@ export class AppLinks extends Component {
                 <a href="https://dev.arkcoin.net/api/peers/version">devnet node api</a>
               </td>
             </tr>
-            <tr>
-              <td>
-                <a href="https://docs.google.com/spreadsheets/d/1QawUqYa_e9YN_3Stb3-WYTdJ2BgnYqxsErYbA2ihXjo">delegate who is who</a>
-              </td>
-            </tr>
           </tbody>
         </table>
         <br />
