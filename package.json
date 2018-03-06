@@ -4,11 +4,11 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "moment": "^2.19.2",
+    "moment": "^2.21.0",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^15.6.1",
-    "react-linkify": "^0.2.1",
+    "react-linkify": "^0.2.2",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.2.2",
     "webfontloader": "^1.6.28"
