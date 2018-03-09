@@ -24,12 +24,17 @@ export class AppLinks extends Component {
             </tr>
             <tr>
                 <td>
-                  <a href="https://www.reddit.com/r/DelegateJarunik/">delgate subreddit</a>
+                  <a href="https://www.reddit.com/r/DelegateJarunik/">delegate subreddit</a>
                 </td>
             </tr>
             <tr>
               <td>
                 <a href="https://medium.com/@jarunik">medium blog</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="https://www.reddit.com/r/DelegateJarunik/wiki/bounty">voter bounty program</a>
               </td>
             </tr>
             <tr>
