@@ -58,6 +58,22 @@ export class AppVoters extends Component {
             </tr>
         );
 
+    const votesArrayAll = [].concat(this.state.delegate.voters)
+        .sort((a, b) => b.balance - a.balance)
+        .map((voter) => voter.balance);
+
+    const votesArrayGtZero = [].concat(this.state.delegate.voters)
+        .filter((voter) => voter.balance > 0)
+        .sort((a, b) => b.balance - a.balance)
+        .map((voter) => voter.balance);
+        
+    function getMedian(sortedArray) {
+      var len = sortedArray.length;
+      if(!len) return 0;      
+      var half = Math.floor(len / 2);
+      return len % 2 ? Number(sortedArray[half]) : (Number(sortedArray[half - 1]) + Number(sortedArray[half])) / 2;
+    }
+        
     return (
       <div>
         <p>
@@ -67,11 +83,13 @@ export class AppVoters extends Component {
           Ark: {Number (Math.round(this.state.delegate.delegate.vote * satoshi) ).toLocaleString('en') } <br/>
           Voters: {this.state.delegate.voters.length} <br/>     
           Average: {Number (Math.round(this.state.delegate.delegate.vote * satoshi / this.state.delegate.voters.length) ).toLocaleString('en') } <br/>
+          Median: {Number (Math.round(getMedian(votesArrayAll) * satoshi) ).toLocaleString('en') } <br/>
         </p>
         <p>
           Excluding 0 balance <br/>
           Voters: {voterRow.length} <br/>
-          Average: {Number (Math.round(this.state.delegate.delegate.vote * satoshi / voterRow.length) ).toLocaleString('en') }     
+          Average: {Number (Math.round(this.state.delegate.delegate.vote * satoshi / voterRow.length) ).toLocaleString('en') } <br/>
+          Median: {Number (Math.round(getMedian(votesArrayGtZero) * satoshi) ).toLocaleString('en') }  
         </p>        
         <table>
           <thead>
