@@ -78,7 +78,7 @@ export class AppVoters extends Component {
       return Math.round(vote * satoshi) < cap ? ((vote * 100) / candidateTotal).toFixed(3) : ((cap/satoshi * 100) / candidateTotal).toFixed(3) ;
     }
     
-    // works sorted arrays
+    // works on sorted arrays
     function quartile(sortedArray, q) {
       var pos = ((sortedArray.length) - 1) * q;
       var base = Math.floor(pos);
